@@ -1,4 +1,4 @@
-angular.module('namesinahat.services', [])
+angular.module('names.services', [])
 
 .factory('Game', ->
   o = {}

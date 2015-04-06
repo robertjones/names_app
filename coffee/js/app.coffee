@@ -1,7 +1,4 @@
-angular.module 'names', [
-  'ionic'
-  'names.controllers'
-]
+angular.module('names', ['ionic', 'names.controllers', 'names.services'])
 
 .run ($ionicPlatform) ->
   $ionicPlatform.ready ->

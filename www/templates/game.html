@@ -1,5 +1,34 @@
 <ion-view view-title="Game">
   <ion-content>
-    This is the game screen.
+
+    <div style="background-color: blue">
+      <div style="width: {{100 - timePercent()}}%; height: 4px; background-color: lightblue" class="right"></div>
+    </div>
+
+    <div class="list">
+
+      <div class="item item-divider">
+        <small>{{ currentRound() }}</small>
+        <span class="item-note {{currentTeam().class}}">{{ currentTeam().name }} Team</span>
+      </div>
+
+      <div class="item item-text-wrap" style="text-align: center">
+        <h1 style="margin-top: 20px; margin-bottom: 20px; height: 200px;">{{ currentCard().text }}</h1>
+      </div>
+
+      <div class="row item item-divider">
+        <div class="col">
+          <button class="button button-block button-assertive" style="margin: 0px" ng-click="foul()"><i class="icon ion-close"></i> <small>Foul</small></button>
+        </div>
+        <div class="col">
+          <button class="button button-block button-energized" ng-class="{'disabled' : unSkippable()}" style="margin: 0px" ng-click="skip()"><i class="icon ion-forward"></i> <small>Skip</small></button>
+        </div>
+        <div class="col">
+            <button class="button button-block button-balanced" style="margin: 0px" ng-click="got()"><i class="icon ion-checkmark"></i> <small>Got it</small></button>
+        </div>
+      </div>
+
+    </div>
+
   </ion-content>
 </ion-view>
