@@ -143,8 +143,8 @@ angular.module('names.services', [])
     o.roundCards = _.shuffle o.gameCards
     o.scores = {Blue: 0, Green: 0}
     o.turnPoints = 0
-    o.newGameAlert()
     o.teams = _.shuffle(o.teams)
+    o.newGameAlert()
     o.skips = 0
     o.resetTimer()
 

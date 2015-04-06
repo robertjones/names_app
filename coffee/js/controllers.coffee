@@ -25,7 +25,7 @@ angular.module('names.controllers', [])
     stopTimer()
     $ionicPopup.alert(
       title: 'Time\'s up'
-      template: """#{Game.currentTeam().name} Team your turn is over.<br />
+      template: """#{Game.currentTeam().name} Team, your turn is over.<br />
                    You got #{Game.turnPoints} points this turn.<br />
                    Scores: #{Game.scoreStr()}."""
       okText: 'OK'
