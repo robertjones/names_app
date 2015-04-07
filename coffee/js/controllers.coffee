@@ -1,6 +1,15 @@
 angular.module('names.controllers', [])
 
-.controller('AppCtrl', ($scope) ->)
+.controller('AppCtrl', ($scope, $ionicPopup, Game) ->
+  $scope.newGame = ->
+    $ionicPopup.confirm(
+      title: 'End current game?',
+      template: 'Are you sure you want to end the current game?'
+      cancelText: 'No, play on'
+      okType: 'button-assertive'
+      okText: 'End game'
+    ).then((res) -> Game.newGame() if res)
+)
 
 .controller('GameCtrl', ($scope, $interval, $ionicPopup, Game) ->
   $scope.currentCard = Game.currentCard

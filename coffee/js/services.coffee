@@ -143,6 +143,7 @@ angular.module('names.services', [])
       "Round 3: One word"
       "Round 4: No words"
     ]
+    o.gameCards = _.take _.shuffle(cardBank), 3
     o.roundCards = _.shuffle o.gameCards
     o.scores = {Blue: 0, Green: 0}
     o.turnPoints = 0
