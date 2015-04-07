@@ -73,7 +73,7 @@ angular.module('names.services', [])
   ]
 
     # Card stores
-  o.gameCards = _.take _.shuffle(cardBank), 30
+  o.gameCards = _.take _.shuffle(cardBank), 3
   o.roundCards = _.shuffle o.gameCards
   o.fouledCards = []
   o.skippedCards = []
@@ -89,6 +89,8 @@ angular.module('names.services', [])
       o.roundCards = _.shuffle o.gameCards
       o.rounds.shift()
       o.roundAlert()
+      o.skippedCards = []
+      o.skips = 0
     else
       o.gameOverAlert()
       # o.newGame()
@@ -108,6 +110,7 @@ angular.module('names.services', [])
   o.nextTeam = -> o.turnEndAlert()
   o.teamSwitch = ->
     o.teams.push o.teams.shift()
+    o.roundCards = _.shuffle(o.roundCards.concat o.skippedCards)
     o.fouledCards = []
     o.skippedCards = []
     o.gotCards = []
@@ -128,7 +131,7 @@ angular.module('names.services', [])
       o.nextRound() if o.roundCards.length == 0
   o.foul = cardAction -1, o.fouledCards
   o.skip = ->
-    o.roundCards.shift()
+    o.skippedCards.push o.roundCards.shift()
     o.skips++
   o.got = cardAction 1, o.gotCards
 

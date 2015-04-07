@@ -75,10 +75,15 @@ angular.module('names.controllers', [])
   counter = {}
   resetTimer = -> timeRemaining = goLength * 10
   Game.resetTimer = resetTimer
-  startTimer = -> timerOn = true
-  stopTimer = -> timerOn = false
+  startTimer = ->
+    timerOn = true
+    $scope.displayName = true
+  stopTimer = ->
+    timerOn = false
+    $scope.displayName = false
   $scope.timePercent = -> timeRemaining/goLength/10*100
   $interval(timer, 100)
+  $scope.displayName = false
 
   # Init
   Game.newGame()
