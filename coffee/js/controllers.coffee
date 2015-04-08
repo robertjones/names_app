@@ -24,6 +24,7 @@ angular.module('names.controllers', [])
   # Popups
   roundAlert = ->
     stopTimer()
+    round_sound.play()
     $ionicPopup.alert(
       title: Game.currentRound()
       template: 'Your go continues with a new round.'
@@ -32,6 +33,7 @@ angular.module('names.controllers', [])
   Game.roundAlert = roundAlert
   turnEndAlert = ->
     stopTimer()
+    end_sound.play()
     $ionicPopup.alert(
       title: 'Time\'s up'
       template: """#{Game.currentTeam().name} Team, your turn is over.<br />
@@ -53,6 +55,7 @@ angular.module('names.controllers', [])
   Game.turnStartAlert = turnStartAlert
   gameOverAlert = ->
     stopTimer()
+    game_over_sound.play()
     $ionicPopup.alert(
       title: 'Game over'
       template: """Scores: #{Game.scoreStr()}."""
@@ -93,6 +96,11 @@ angular.module('names.controllers', [])
   $scope.timePercent = -> timeRemaining/goLength/10*100
   $interval(timer, 100)
   $scope.displayName = false
+
+  # Sounds
+  end_sound = new Audio('../sounds/182351__kesu__alarm-clock-beep.wav')
+  round_sound = new Audio('../sounds/137106__chaosportal__whistle-07-cut.wav')
+  game_over_sound = new Audio('../sounds/242855__plasterbrain__friend-request.wav')
 
   # Init
   Game.newGame()

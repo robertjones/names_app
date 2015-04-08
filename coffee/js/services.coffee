@@ -72,8 +72,11 @@ angular.module('names.services', [])
       text: "Peter Piper"
   ]
 
-    # Card stores
-  o.gameCards = _.take _.shuffle(cardBank), 3
+  # config
+  numCards = 30
+
+  # Card stores
+  o.gameCards = _.take _.shuffle(cardBank), numCards
   o.roundCards = _.shuffle o.gameCards
   o.fouledCards = []
   o.skippedCards = []
@@ -97,7 +100,7 @@ angular.module('names.services', [])
 
   # Timer
   o.timeLength = 60
-  o.timeRemaining = 45
+  o.timeRemaining = 60
   o.timePercent = -> o.timeRemaining / o.timeLength * 100
 
 
@@ -143,7 +146,7 @@ angular.module('names.services', [])
       "Round 3: One word"
       "Round 4: No words"
     ]
-    o.gameCards = _.take _.shuffle(cardBank), 3
+    o.gameCards = _.take _.shuffle(cardBank), numCards
     o.roundCards = _.shuffle o.gameCards
     o.scores = {Blue: 0, Green: 0}
     o.turnPoints = 0
