@@ -1,3 +1,5 @@
+'use strict'
+
 angular.module('names', ['ionic', 'names.controllers', 'names.services'])
 
 .run ($ionicPlatform) ->

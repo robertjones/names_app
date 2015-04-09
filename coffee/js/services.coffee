@@ -1,3 +1,5 @@
+'use strict'
+
 angular.module('names.services', [])
 
 .factory('Game', ->
