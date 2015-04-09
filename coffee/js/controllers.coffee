@@ -1,6 +1,4 @@
-'use strict'
-
-angular.module('names.controllers', [])
+angular.module('starter.controllers', [])
 
 .controller('AppCtrl', ($scope, $ionicPopup, Game) ->
   $scope.newGame = ->

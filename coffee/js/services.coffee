@@ -1,6 +1,4 @@
-'use strict'
-
-angular.module('names.services', [])
+angular.module('starter.services', [])
 
 .factory('Game', ->
   o = {}
